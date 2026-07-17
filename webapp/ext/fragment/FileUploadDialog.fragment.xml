@@ -1,0 +1,84 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:u="sap.ui.unified"
+	xmlns:l="sap.ui.layout">
+	<Dialog
+		id="budgetFileUploadDialog"
+		title="Upload Budget Request Data (Excel / CSV)"
+		contentWidth="45rem"
+		contentHeight="35rem"
+		stretch="{device>/system/phone}"
+		resizable="true"
+		draggable="true"
+		verticalScrolling="true">
+		<content>
+			<VBox class="sapUiContentPadding" alignItems="Center" width="100%">
+				<VBox width="90%">
+					<MessageStrip
+						id="uploadHintStrip"
+						class="sapUiSmallMarginBottom"
+						type="Information"
+						showIcon="true"
+						text="Allowed file types: .xlsx, .xls, .csv (max 15 MB)." />
+
+					<u:FileUploader
+						id="budgetFileUploader"
+						name="budgetFileUpload"
+						uploadUrl=""
+						fileType="csv,xlsx,xls"
+						placeholder="Choose an Excel (.xlsx) or CSV (.csv) file..."
+						width="100%"
+						buttonText="Browse..."
+						tooltip="Select the budget request file to upload"
+						class="sapUiSmallMarginBottom" />
+
+					<Text id="fileStatusText" class="sapUiSmallMarginBottom" text="" />
+
+					<Title
+						id="validationErrorTitle"
+						text="Validation Errors — please correct the file and upload again"
+						level="H5"
+						class="sapUiTinyMarginBottom"
+						visible="false"
+						wrapping="true" />
+
+					<Button
+						id="downloadErrorLogBtn"
+						text="Download Error Log"
+						icon="sap-icon://download"
+						type="Transparent"
+						class="sapUiSmallMarginBottom"
+						visible="{= ${upload>/errors}.length > 0 }" />
+
+					<Table
+						id="validationErrorTable"
+						class="sapUiSmallMarginBottom"
+						visible="false"
+						items="{upload>/errors}">
+						<columns>
+							<!--<Column width="15%"><Text text="Row" /></Column>-->
+							<Column width="30%"><Text text="Field" /></Column>
+							<Column><Text text="Error" /></Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<!--<Text text="{upload>row}" />-->
+									<Text text="{upload>field}" />
+									<Text text="{upload>message}" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</VBox>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button id="uploadConfirmBtn" text="Upload" type="Emphasized" enabled="false" />
+		</beginButton>
+		<endButton>
+			<Button id="cancelUploadBtn" text="Cancel" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

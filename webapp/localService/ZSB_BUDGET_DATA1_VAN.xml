@@ -1,0 +1,244 @@
+<edmx:Edmx
+    xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../../sap/zsb_budget_data1/$metadata">
+        <edmx:Include Namespace="ZSB_BUDGET_DATA1" Alias="SAP"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema
+            xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="zsb_budget_data1_van.v1">
+            <Annotations Target="cds_zsd_budget_data.ZC_BUDGET_DATAType/RequestNo">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_budget_data.ZC_BUDGET_DATAType/RequestDate">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_budget_data.ZC_BUDGET_DATAType/RequestedBy">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_budget_data.ZC_BUDGET_DATAType/CurrentStatus">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_budget_data.ZC_BUDGET_DATAType/PendingWith">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_budget_data.ZC_BUDGET_DATAType/WfInstanceId">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_budget_data.ZC_BUDGET_DATAType/SapDocNo">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_budget_data.ZC_BUDGET_DATAType/ReleaseDocNo">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_budget_data.ZC_BUDGET_DATAType/WbsLockFlag">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_budget_data.ZC_BUDGET_DATAType/referenceamt">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_budget_data.ZC_BUDGET_DATAType/Delete_mc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_budget_data.ZC_BUDGET_DATAType/Update_mc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_budget_data.ZC_BUDGET_DATAType/RequestType">
+                <Annotation Term="Common.Text" Path="Text">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/></Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsd_budget_data.ZC_BUDGET_DATAType">
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="General information"/>
+                            <PropertyValue Property="ID" String="c1"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#q1"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="From WBS"/>
+                            <PropertyValue Property="ID" String="c2"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#q2"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="To WBS"/>
+                            <PropertyValue Property="ID" String="c3"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#q3"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="q1">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Request type"/>
+                                    <PropertyValue Property="Value" Path="RequestType"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Amount requested"/>
+                                    <PropertyValue Property="Value" Path="RequestedAmt"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Justification"/>
+                                    <PropertyValue Property="Value" Path="Justification"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="q2">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="WBS"/>
+                                    <PropertyValue Property="Value" Path="FromWbs"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Fiscal year"/>
+                                    <PropertyValue Property="Value" Path="FromYear"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Person"/>
+                                    <PropertyValue Property="Value" Path="VernrFrom"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Person Available budget"/>
+                                    <PropertyValue Property="Value" Path="AvailAmtFrom"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Monitoring head code"/>
+                                    <PropertyValue Property="Value" Path="MoniFrom"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Monitoring head description"/>
+                                    <PropertyValue Property="Value" Path="MoniFromDesc"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="q3">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="WBS"/>
+                                    <PropertyValue Property="Value" Path="ToWbs"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Fiscal year"/>
+                                    <PropertyValue Property="Value" Path="ToYear"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Person"/>
+                                    <PropertyValue Property="Value" Path="VernrTo"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Person Available budget"/>
+                                    <PropertyValue Property="Value" Path="AvailAmtTo"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Monitoring head code"/>
+                                    <PropertyValue Property="Value" Path="MoniTo"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="Monitoring head description"/>
+                                    <PropertyValue Property="Value" Path="MoniToDesc"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Request type"/>
+                            <PropertyValue Property="Value" Path="RequestType"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Source WBS"/>
+                            <PropertyValue Property="Value" Path="FromWbs"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Receiving WBS"/>
+                            <PropertyValue Property="Value" Path="ToWbs"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="From Fiscal year"/>
+                            <PropertyValue Property="Value" Path="FromYear"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="To Fiscal year"/>
+                            <PropertyValue Property="Value" Path="ToYear"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="From Person"/>
+                            <PropertyValue Property="Value" Path="VernrFrom"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="To Person"/>
+                            <PropertyValue Property="Value" Path="VernrTo"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="From Available budget"/>
+                            <PropertyValue Property="Value" Path="AvailAmtFrom"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="To Available budget"/>
+                            <PropertyValue Property="Value" Path="AvailAmtTo"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Amount requested"/>
+                            <PropertyValue Property="Value" Path="RequestedAmt"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Justification"/>
+                            <PropertyValue Property="Value" Path="Justification"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Monitoring head code from"/>
+                            <PropertyValue Property="Value" Path="MoniFrom"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Monitoring head from description"/>
+                            <PropertyValue Property="Value" Path="MoniFromDesc"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Monitoring head code to"/>
+                            <PropertyValue Property="Value" Path="MoniTo"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Monitoring head to description"/>
+                            <PropertyValue Property="Value" Path="MoniToDesc"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsd_budget_data.ZWBS_SRHType/Pspnr">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
