@@ -87,7 +87,7 @@
 		"toWbsSectionTitle": "Receiving WBS",
 		"requestTypeTextProperty": "RequestType",
 		"transferValue": "T",
-		"readOnlyFields": ["VernrFrom", "VernrTo"]
+		"readOnlyFields": ["VernrFrom"]
 	},
 	"sap.ui": {
 		"technology": "UI5",
